@@ -41,5 +41,18 @@
            //这个回调在vm.a改变后调用，由于vue是双向绑定，data.a改变后也会触发该回调
            console.log('a has been changed, oldValue:'+oldValue+',newValue:'+newValue)
        })
+
+       //实例生命周期钩子
+       new Vue({
+           data:{
+               a:1
+           },
+           beforeCreate:function() {
+               console.log('beforeCreate...')
+           },
+           created:function() {
+               console.log('a is:'+this.a)
+           },
+       })
     </script>
 </html>
