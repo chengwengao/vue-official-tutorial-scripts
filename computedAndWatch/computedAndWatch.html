@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>计算属性和侦听器</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+    <body>
+        <div id="example">
+            <p>Original msg: {{ msg }}</p>
+            <p>computed reversed msg : {{ reversedMsg }}</p>
+        </div>
+        <!-- 计算属性 -->
+        <div id="demo">
+            {{ fullName }}
+        </div>
+    </body>
+<script>
+    var vm = new Vue({
+        el:'#example',
+        data:{
+            msg:'hello'
+        },
+        computed:{
+            reversedMsg:function(){
+                return this.msg.split('').reverse().join('')
+            }
+        }
+    })
+    //console input: vm.msg = '123'
+
+    var demo = new Vue({
+        el:'#demo',
+        data:{
+            firstName:'Bruccee',
+            lastName:'Lee'
+        },
+        computed:{
+            fullName:function(){
+                return this.firstName + ' ' + this.lastName
+            }
+        }
+    })
+</script>
+</html>
